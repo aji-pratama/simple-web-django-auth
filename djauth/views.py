@@ -18,5 +18,14 @@ def login(request):
         except Exception, err:
             return HttpResponse('Login Gagal')
         else:
-            return HttpResponse('Login Berhasil')
+            return HttpResponseRedirect('/dashboard/')
     return HttpResponse("Hahah")
+
+def dashboard(request):
+    if request.user.is_authenticated():
+        return render_to_response('dashboard.html', locals(), context_instance=RequestContext(request))
+    return HttpResponse('Hanya bisa di askses oleh User')
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/')
