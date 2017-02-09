@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^login/$', 'djauth.views.login', name='login'),
     url(r'^logout/$', 'djauth.views.logout', name='logout'),
     url(r'^dashboard/$', 'djauth.views.dashboard', name='dashboard'),
+    url(r'^register/$', 'djauth.views.register', name='register'),
 )

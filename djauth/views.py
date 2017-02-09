@@ -29,3 +29,21 @@ def dashboard(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/')
+
+def register(request):
+    if request.POST:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        staff = False
+        if request.POST.get('staff'):
+            staff = True
+        u = User.objects.create_user(username=username, password=password, email=email)
+        u.first_name = first_name
+        u.last_name = last_name
+        u.is_staff = staff
+        u.save()
+        return HttpResponseRedirect('/')
+    return render_to_response('register.html', locals(), context_instance=RequestContext(request))
