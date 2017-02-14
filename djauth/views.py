@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth.models import *
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render_to_response('page.html', locals(), context_instance=RequestContext(request))
@@ -21,6 +22,7 @@ def login(request):
             return HttpResponseRedirect('/dashboard/')
     return HttpResponse("Hahah")
 
+@login_required
 def dashboard(request):
     if request.user.is_authenticated():
         return render_to_response('dashboard.html', locals(), context_instance=RequestContext(request))
