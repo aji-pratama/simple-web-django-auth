@@ -5,7 +5,7 @@
     <title>Register</title>
   </head>
   <body>
-    <form class="register" action="index.html" method="post"> {% csrf_token %}
+    <form class="register" action="{% url register %}" method="post"> {% csrf_token %}
       <div class="">User Name : <input type="text" name="username"></div>
       <div class="">First Name : <input type="text" name="first_name" ></div>
       <div class="">Last Name : <input type="text" name="last_name"></div>
