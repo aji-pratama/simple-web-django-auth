@@ -6,6 +6,9 @@ from django.contrib.auth.models import *
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
+def index(request):
+    return render_to_response('index.html', locals(), context_instance=RequestContext(request))
+
 def home(request):
     return render_to_response('page.html', locals(), context_instance=RequestContext(request))
 
