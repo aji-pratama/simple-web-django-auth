@@ -11,7 +11,12 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'djauth.views.logout', name='logout'),
     url(r'^dashboard/$', 'djauth.views.dashboard', name='dashboard'),
     url(r'^register/$', 'djauth.views.register', name='register'),
-    # url(r'^index/$', 'djauth.views.index', name='index'),
+
+    url(r'^about/$', 'djauth.views.about', name='about'),
+    url(r'^about_detail/$', 'djauth.views.about_detail', name='about_detail'),
+
+    url(r'^portfolio/$', 'djauth.views.portfolio', name='portfolio'),
+
 )
 
 urlpatterns = patterns('',

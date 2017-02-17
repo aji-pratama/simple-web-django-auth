@@ -1,6 +1,8 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 
+from .models import About, Post
+
 from django.template import RequestContext
 from django.contrib.auth.models import *
 from django.contrib import auth
@@ -49,3 +51,14 @@ def register(request):
         u.save()
         return HttpResponseRedirect('/')
     return render_to_response('register.html', locals(), context_instance=RequestContext(request))
+
+def about(request):
+    about = About.objects.get(id=1)
+    return render_to_response('about.html', locals(), context_instance=RequestContext(request))
+
+def about_detail(request):
+    about = About.objects.get(id=1)
+    return render_to_response('about_detail.html', locals(), context_instance=RequestContext(request))
+
+def portfolio(request):
+    return render_to_response('portfolio.html', locals(), context_instance=RequestContext(request))

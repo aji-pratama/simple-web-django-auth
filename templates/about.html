@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>{{ about.title }}</h3>
+  <p>
+    {{ about.desc }}
+  </p>
+  <a href="{% url about_detail %}">detail</a>
+{% endblock %}
