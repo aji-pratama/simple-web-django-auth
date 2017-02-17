@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Register</title>
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block content %}
     <form class="register" action="{% url register %}" method="post"> {% csrf_token %}
       <div class="">User Name : <input type="text" name="username"></div>
       <div class="">First Name : <input type="text" name="first_name" ></div>
@@ -14,5 +9,4 @@
       <div class="">Staff Admin : <input type="checkbox" name="staff"></div>
       <input type="submit" name="submit" value="Register">
     </form>
-  </body>
-</html>
+{% endblock %}

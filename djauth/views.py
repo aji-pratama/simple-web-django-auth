@@ -9,9 +9,6 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render_to_response('index.html', locals(), context_instance=RequestContext(request))
 
-def home(request):
-    return render_to_response('page.html', locals(), context_instance=RequestContext(request))
-
 def login(request):
     if request.POST:
         username = request.POST.get('username')
@@ -23,7 +20,7 @@ def login(request):
             return HttpResponse('Login Gagal')
         else:
             return HttpResponseRedirect('/dashboard/')
-    return HttpResponse("Hahah")
+    return render_to_response('login.html', locals(), context_instance=RequestContext(request))
 
 @login_required
 def dashboard(request):

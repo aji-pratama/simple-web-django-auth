@@ -6,12 +6,12 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'djauth.views.home', name='home' ),
+    url(r'^$', 'djauth.views.index', name='index' ),
     url(r'^login/$', 'djauth.views.login', name='login'),
     url(r'^logout/$', 'djauth.views.logout', name='logout'),
     url(r'^dashboard/$', 'djauth.views.dashboard', name='dashboard'),
     url(r'^register/$', 'djauth.views.register', name='register'),
-    url(r'^index/$', 'djauth.views.index', name='index'),
+    # url(r'^index/$', 'djauth.views.index', name='index'),
 )
 
 urlpatterns = patterns('',
