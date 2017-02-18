@@ -3,5 +3,23 @@
   <h3>{{ about.title }}</h3>
   <p>
     {{ about.desc_detail }}
+  </p> <br>
+  <b>Komentar</b>
+  {% for kom in komentar %}
+  <p>
+    {{ kom.title }} <br>
+    {{ kom.body }} <br>
+    {{ kom.komentator }}
+  </p>
+  {% endfor %}
+
+  <p>
+    <form action="{% url about_komentar %}" method="post">{% csrf_token %}
+      <input type="text" name="title">
+      <input type="text" name="body">
+      <input type="hidden" name="komentator" value="{{ request.user.username }}">
+      <input type="hidden" name="untuk" value="about">
+      <input type="submit" name="submit" value="Send">
+    </form>
   </p>
 {% endblock %}

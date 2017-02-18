@@ -14,6 +14,8 @@ urlpatterns = patterns('',
 
     url(r'^about/$', 'djauth.views.about', name='about'),
     url(r'^about_detail/$', 'djauth.views.about_detail', name='about_detail'),
+    url(r'^about_komentar/$', 'djauth.views.about_komentar', name='about_komentar'),
+
 
     url(r'^portfolio/$', 'djauth.views.portfolio', name='portfolio'),
 
