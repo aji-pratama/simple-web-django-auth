@@ -13,6 +13,7 @@
   </p>
   {% endfor %}
 
+  {% if request.user.username %}
   <p>
     <form action="{% url about_komentar %}" method="post">{% csrf_token %}
       <input type="text" name="title">
@@ -22,4 +23,9 @@
       <input type="submit" name="submit" value="Send">
     </form>
   </p>
+  {% else %}
+    <p>
+      <a href="{% url login %}">Login Untuk Komentar</a>
+    </p>
+  {% endif %}
 {% endblock %}
