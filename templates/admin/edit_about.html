@@ -1,0 +1,23 @@
+{% extends "admin/base_admin.html" %}
+{% block content %}
+<div class="col-md-11">
+  <form class="" action="{% url about_edit %}" method="post">{% csrf_token %}
+    <h2>- Edit About -</h2><hr>
+    <div class="form-group">
+      <label for="title">Title :</label>
+      <input type="text" class="form-control" name="title" value="{{ about.title }}">
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Description :</label>
+      <input type="text" class="form-control" name="desc" value="{{ about.desc }}">
+    </div>
+
+    <div class="form-group">
+      <label for="desc_detail">Description Details:</label>
+      <textarea class="form-control" name="desc_detail" rows="5">{{ about.desc_detail }}</textarea>
+    </div>
+    <input type="submit" class="btn btn-success" name="save" value="SAVE">
+  </form>
+</div>
+{% endblock %}

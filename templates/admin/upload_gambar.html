@@ -1,6 +1,6 @@
 {% extends "admin/base_admin.html" %}
 {% block content %}
-  <div class="col-md-8">
+  <div class="col-md-6">
     <h2>- Add Portfolio -</h2><hr>
     <form class="" action="{% url upload_gambar %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
       <div class="form-group">
@@ -15,6 +15,15 @@
         </span>
       </div>
       <input class="btn btn-success btn-md" type="submit" name="submit" value="OK">
-    </form>
+    </form><hr>
+  </div>
+
+  <div class="col-md-12 bordered">
+    {% for port in gambar %}
+    <div class="col-md-3">
+      {{ port.nama }}<br>
+      <img src="{{ MEDIA_URL }}image_upload/{{ port.gambar }}" class="img-responsive" />
+    </div>
+    {% endfor %}
   </div>
 {% endblock %}

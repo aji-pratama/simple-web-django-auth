@@ -31,21 +31,24 @@
   </nav>
 
   <div class="main-container container">
+    <div class="row">
+
     <div class="col-md-3">
         <h2 class="lead">Side Menu</h2><hr>
         <div class="list-group">
             <a href="{% url dashboard %}" class="list-group-item">Dashboard</a>
-            <a href="#" class="list-group-item">Edit About</a>
+            <a href="{% url about_admin %}" class="list-group-item">About</a>
             <a href="{% url upload_gambar %}" class="list-group-item">Add Portfolio</a>
             <a href="{% url logout %}" class="list-group-item">Logout</a>
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-9">
 
       {% block content %}
       {% endblock %}
     </div>
+  </div>
   </div>
 
 </body>

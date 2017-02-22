@@ -71,12 +71,11 @@ def about_komentar(request):
     komentar = Komentar.objects.filter(untuk='about')
     if request.user.is_authenticated():
         if request.POST:
-            title = request.POST.get('title')
             body = request.POST.get('body')
             komentator = request.POST.get('komentator')
             untuk = request.POST.get('untuk')
 
-            k = Komentar(title=title, body=body, komentator=komentator, untuk=untuk)
+            k = Komentar(body=body, komentator=komentator, untuk=untuk)
             k.save()
 
             return render_to_response('about_detail.html', locals(), context_instance=RequestContext(request))
@@ -89,18 +88,37 @@ def portfolio(request):
 
 @login_required
 def upload_gambar(request):
+    gambar = Gambar.objects.all().order_by('-id')
     if request.POST:
         nama = request.POST.get('nama')
-        gambar = request.FILES.get('gambar')
-        ga = Gambar(nama=nama, gambar=gambar)
+        gambars = request.FILES.get('gambar')
+        ga = Gambar(nama=nama, gambar=gambars)
         ga.save()
-        image_result = open('media/image_upload/%s' % gambar,'wb')
-        image_result.write(gambar.read())
+        image_result = open('media/image_upload/%s' % gambars,'wb')
+        image_result.write(gambars.read())
 
+        gambar = Gambar.objects.all()
         return render_to_response('admin/upload_gambar.html', locals(), context_instance=RequestContext(request))
     return render_to_response('admin/upload_gambar.html', locals(), context_instance=RequestContext(request))
 
+@login_required
+def about_admin(request):
+    try:
+        about = About.objects.get(id=1)
+        return render_to_response('admin/about.html', locals(), context_instance=RequestContext(request))
+    except Exception, err:
+        about = False
+        return render_to_response('admin/about.html', locals(), context_instance=RequestContext(request))
 
+def about_edit(request):
+    about = About.objects.get(id=1)
+    if request.POST:
+        about.title = request.POST.get('title')
+        about.desc = request.POST.get('desc')
+        about.desc_detail = request.POST.get('desc_detail')
+        about.save()
+        return render_to_response('admin/about.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('admin/edit_about.html', locals(), context_instance=RequestContext(request))
 
 
 #

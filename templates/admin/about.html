@@ -1,0 +1,28 @@
+{% extends "admin/base_admin.html" %}
+{% block content %}
+  <div class="col-md-10">
+    <h2>- About Me -</h2><hr>
+    {% if about %}
+      <div class="form-group">
+        <label for="">Title :</label>
+        <p>{{ about.title }}</p>
+      </div><hr>
+
+      <div class="form-group">
+        <label for="">Description :</label>
+        <p>{{ about.desc }}</p>
+      </div><hr>
+
+      <div class="form-group">
+        <label for="">Description Detail :</label>
+        <p>{{ about.desc_detail }}</p>
+      </div><hr>
+
+      <a href="{% url about_edit %}" class="btn btn-success">Edit</a>
+    {% else %}
+    <p>
+      Tidak ada Data
+    </p>
+    {% endif %}
+  </div>
+{% endblock %}
