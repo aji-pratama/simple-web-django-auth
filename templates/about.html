@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+  {% if about %}
   <h3>{{ about.title }}</h3>
   <p>
     {{ about.desc }}
   </p>
   <a href="{% url about_detail %}">detail</a>
+  {% else %}
+  <p>
+    Tidak ada Data
+  </p>
+  {% endif %}
 {% endblock %}

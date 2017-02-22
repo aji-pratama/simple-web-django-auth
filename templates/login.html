@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-    <form method="POST" action="{% url login %}">{% csrf_token %}
-      <input type="text" name="username"><br>
-      <input type="password" name="password"><br>
-      <input class="btn btn-success" type="submit" name="submit" value="login">
-    </form>
-
-    <div class="">
-      <a href="{% url register %}">Register</a>
+    <div class="col-md-4">
+      <h2><b>- LOGIN -</b></h2><hr>
+      <form method="POST" action="{% url login %}">{% csrf_token %}
+        <div class="form-group">
+          <label for="username">User Name</label> :
+          <input class="form-control" type="text" name="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" name="password">
+        </div>
+        <input class="btn btn-success" type="submit" name="submit" value="login">
+        <a class="btn btn-primary" href="{% url register %}">Register</a>
+      </form>
     </div>
 {% endblock %}

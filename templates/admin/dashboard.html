@@ -1,0 +1,9 @@
+{% extends "admin/base_admin.html" %}
+{% block content %}
+<div class="col-md-8">
+  <h2>- Dashboard {{ request.user.username }}-</h2><hr>
+  <div class="">
+    <a class="btn btn-danger" href="{% url logout %}">logout</a>
+  </div>
+</div>
+{% endblock %}

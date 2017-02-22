@@ -1,4 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-  This is Portfolio
+  <h2>Portfolio</h2>
+  {% for port in gambar %}
+      {{ port.nama }}<br>
+      <img src="{{ MEDIA_URL }}image_upload/{{ port.gambar }}" alt="" />
+  {% endfor %}
+
 {% endblock %}
