@@ -28,6 +28,18 @@ def about_edit(request):
     return render_to_response('admin/edit_about.html', locals(), context_instance=RequestContext(request))
 
 @user_passes_test(lambda u: u.is_superuser)
+def about_create(request):
+    if request.POST:
+        title = request.POST.get('title')
+        desc = request.POST.get('desc')
+        desc_detail = request.POST.get('desc_detail')
+        tgl_post = timezone.now()
+        about = About(title=title,desc=desc,desc_detail=desc_detail,tgl_post=tgl_post)
+        about.save()
+        return render_to_response('admin/about.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('admin/about.html', locals(), context_instance=RequestContext(request))
+
+@user_passes_test(lambda u: u.is_superuser)
 def upload_gambar(request):
     gambar = Gambar.objects.all().order_by('-id')
     if request.POST:

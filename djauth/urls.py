@@ -18,6 +18,8 @@ urlpatterns = patterns('',
 
     url(r'^about_admin/$', 'djauth.views.about_admin', name='about_admin'),
     url(r'^about_edit/$', 'djauth.views.about_edit', name='about_edit'),
+    url(r'^about_create/$', 'djauth.views.about_create', name='about_create'),
+
 
     url(r'^portfolio/$', 'djauth.views.portfolio', name='portfolio'),
     url(r'^upload_gambar/$', 'djauth.views.upload_gambar', name='upload_gambar'),
