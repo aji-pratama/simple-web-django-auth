@@ -29,7 +29,8 @@
   'PASSWORD': '',
 
 ##EXPORT DATABASE
-Jika export data dari databse saya di file 'django_auth.sql', maka sudah ada 2 user
+Jika export data dari databse saya di file 'django_auth.sql', maka sudah ada 2 user:
+
 1. User sebagai admin yang bisa mengakses fitur2 admin
   - username : admin
   - password : password123
