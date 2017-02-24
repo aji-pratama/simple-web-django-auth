@@ -22,11 +22,11 @@
   - localhost:8000/about_detail         -> melihat detail about
 
 ##MYSQL CONFIGURATION:
-  'ENGINE': 'django.db.backends.mysql',
-  'NAME': 'django_auth',
-  'HOST': '127.0.0.1',
-  'USER': 'root',
-  'PASSWORD': '',
+  - 'ENGINE': 'django.db.backends.mysql',
+  - 'NAME': 'django_auth',
+  - 'HOST': '127.0.0.1',
+  - 'USER': 'root',
+  - 'PASSWORD': '',
 
 ##EXPORT DATABASE
 Jika export data dari databse saya di file 'django_auth.sql', maka sudah ada 2 user:
